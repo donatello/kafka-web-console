@@ -29,7 +29,7 @@ app.controller("ZookeepersController", function ($scope, $http, $location) {
     $scope.zookeeper = {};
     $scope.zookeeper.group = $scope.groups[0];
 
-    var ws = new WebSocket('ws://' + $location.host() + ':' + $location.port() + $('base').attr('href') + 'zookeepers.json/feed');
+    var ws = new WebSocket('wss://' + $location.host() + ':' + $location.port() + $('base').attr('href') + 'zookeepers.json/feed');
 
     ws.onmessage = function (message) {
         var serverZk = angular.fromJson(message.data);

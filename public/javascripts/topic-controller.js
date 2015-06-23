@@ -26,7 +26,7 @@ app.controller("TopicController", function ($http, $scope, $location, $routePara
         });
     });
 
-    var ws = new WebSocket('ws://' + $location.host() + ':' + $location.port() + $('base').attr('href') + 'topics.json/' + $routeParams.topic + '/' + $routeParams.zookeeper + '/feed');
+    var ws = new WebSocket('wss://' + $location.host() + ':' + $location.port() + $('base').attr('href') + 'topics.json/' + $routeParams.topic + '/' + $routeParams.zookeeper + '/feed');
     ws.onmessage = function (message) {
         var well = angular.element('<div class="well well-sm"/>');
         well.text(message.data);
